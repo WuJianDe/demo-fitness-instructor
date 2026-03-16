@@ -1,6 +1,26 @@
-# Frontend
+ï»¿# Frontend
 
-Public-facing website scaffold for the fitness instructor project.
+Public-facing website for the fitness instructor project.
+
+## Current Direction
+
+This frontend is currently styled as a premium, high-intensity brand site for a Taipei-based female fitness coach.
+The visual direction emphasizes:
+
+- Editorial typography and dark luxury presentation
+- High-contrast hero imagery and cinematic sections
+- Bold CTA-driven landing page structure
+- GSAP-powered scroll reveal motion
+
+## Implemented Sections
+
+- Hero section with large-format coach image
+- Training philosophy section
+- Signature program list
+- Training blueprint / process section
+- Consultation CTA section
+- Header and footer navigation shell
+- 404 page and SSG-ready routing scaffold
 
 ## Stack
 
@@ -9,6 +29,7 @@ Public-facing website scaffold for the fitness instructor project.
 - Vue Router
 - Pinia
 - `@vueuse/head`
+- GSAP + ScrollTrigger
 - Axios
 - SCSS
 
@@ -32,14 +53,25 @@ npm run format:check
 
 ```text
 src/
-¢u¢w¢w components/
-¢u¢w¢w composables/
-¢u¢w¢w features/
-¢u¢w¢w layouts/
-¢u¢w¢w pages/
-¢u¢w¢w router/
-¢u¢w¢w services/
-¢u¢w¢w stores/
-¢u¢w¢w styles/
-¢|¢w¢w types/
+â”œâ”€â”€ assets/
+â”œâ”€â”€ components/
+â”œâ”€â”€ composables/
+â”œâ”€â”€ features/
+â”œâ”€â”€ layouts/
+â”œâ”€â”€ pages/
+â”œâ”€â”€ router/
+â”œâ”€â”€ services/
+â”œâ”€â”€ stores/
+â”œâ”€â”€ styles/
+â””â”€â”€ types/
+```
+
+## Verification
+
+The current frontend should be checked with:
+
+```bash
+npm run type-check
+npm run lint
+npm run build
 ```

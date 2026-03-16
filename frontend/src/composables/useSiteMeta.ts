@@ -1,22 +1,22 @@
 interface CallToAction {
-  href: string
-  label: string
+  href: string;
+  label: string;
 }
 
 interface SiteMeta {
-  primaryCta: CallToAction
-  secondaryCta: CallToAction
+  primaryCta: CallToAction;
+  secondaryCta: CallToAction;
 }
 
 export function useSiteMeta(): SiteMeta {
   return {
     primaryCta: {
-      href: '#',
-      label: 'Plan Homepage',
+      href: "#consultation",
+      label: "INITIATE PROTOCOL",
     },
     secondaryCta: {
-      href: '#',
-      label: 'Define Programs',
+      href: "#programs",
+      label: "VIEW ELITE PROGRAMS",
     },
-  }
+  };
 }

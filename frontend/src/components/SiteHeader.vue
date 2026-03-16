@@ -1,33 +1,22 @@
 <script setup lang="ts">
-import type { NavigationItem } from '../types/navigation'
+import type { NavigationItem } from "../types/navigation";
 
 const navigationItems: NavigationItem[] = [
-  { label: 'Home', to: '/' },
-  { label: 'Programs', to: '/' },
-  { label: 'About', to: '/' },
-  { label: 'Contact', to: '/' },
-]
+  { label: "訓練哲學", href: "#about" },
+  { label: "巔峰計畫", href: "#programs" },
+  { label: "訓練藍圖", href: "#journey" },
+  { label: "立即預約", href: "#consultation" },
+];
 </script>
 
 <template>
   <header class="site-header">
-    <RouterLink class="site-brand" to="/">
-      <span class="site-brand__mark">DF</span>
-      <span class="site-brand__text">
-        <strong>Demo Fitness</strong>
-        <small>Instructor Studio</small>
-      </span>
-    </RouterLink>
+    <a class="brand-logo" href="#top"> JADE ELITE </a>
 
-    <nav class="site-nav" aria-label="Primary">
-      <RouterLink
-        v-for="item in navigationItems"
-        :key="item.label"
-        class="site-nav__link"
-        :to="item.to"
-      >
+    <nav class="nav-links" aria-label="Primary">
+      <a v-for="item in navigationItems" :key="item.label" :href="item.href">
         {{ item.label }}
-      </RouterLink>
+      </a>
     </nav>
   </header>
 </template>

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import SiteFooter from '../components/SiteFooter.vue'
-import SiteHeader from '../components/SiteHeader.vue'
+import SiteHeader from "../components/SiteHeader.vue";
+// We removed SiteFooter to keep the brutalist design extremely clean,
+// ending powerfully on the CTA section.
 </script>
 
 <template>
-  <div class="site-frame">
+  <div>
     <SiteHeader />
-    <main class="site-main">
+    <main>
       <slot />
     </main>
-    <SiteFooter />
   </div>
 </template>

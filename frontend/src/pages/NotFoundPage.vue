@@ -1,29 +1,26 @@
-<script setup lang="ts">
-import { useHead } from '@vueuse/head'
+﻿<script setup lang="ts">
+import { useHead } from "@vueuse/head";
 
-import DefaultLayout from '../layouts/DefaultLayout.vue'
+import DefaultLayout from "../layouts/DefaultLayout.vue";
 
 useHead({
-  title: 'Page Not Found | Demo Fitness Instructor',
+  title: "找不到頁面 | Jade Flow Studio",
   meta: [
     {
-      name: 'robots',
-      content: 'noindex',
+      name: "robots",
+      content: "noindex",
     },
   ],
-})
+});
 </script>
 
 <template>
   <DefaultLayout>
     <section class="page-shell page-shell--narrow">
       <p class="eyebrow">404</p>
-      <h1>Page not found</h1>
-      <p class="lead">
-        The page you requested does not exist yet. The routing scaffold is ready for future
-        expansion.
-      </p>
-      <RouterLink class="button button--primary" to="/">Back to home</RouterLink>
+      <h1>這個頁面還沒有準備好。</h1>
+      <p class="lead">妳可以先回到首頁看看課程方案、教練介紹與預約資訊。</p>
+      <RouterLink class="button button--primary" to="/">回到首頁</RouterLink>
     </section>
   </DefaultLayout>
 </template>

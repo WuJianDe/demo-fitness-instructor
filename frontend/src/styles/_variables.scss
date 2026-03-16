@@ -1,14 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
+
 :root {
-  --color-ink: #1d241f;
-  --color-ink-muted: #55615a;
-  --color-surface: #f4efe6;
-  --color-surface-strong: #fffaf2;
-  --color-line: rgba(29, 36, 31, 0.12);
-  --color-brand: #d8622b;
-  --color-brand-deep: #9f3f17;
-  --color-accent: #23463f;
-  --shadow-soft: 0 24px 60px rgba(35, 70, 63, 0.12);
-  --font-body: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
-  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
-  --page-width: 1200px;
+  --color-ink: #ffffff;
+  --color-ink-soft: #cbd5e1; /* Lighter slate for better contrast */
+  --color-paper: #020617;
+  --color-paper-strong: rgba(15, 23, 42, 0.85);
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-brand: #ccff00; /* Neon yellow/green */
+  --color-brand-deep: #aee600; /* slightly darker neon */
+  --color-accent: #0ea5e9; /* Electric blue */
+  --color-accent-soft: rgba(14, 165, 233, 0.15);
+  --color-highlight: rgba(204, 255, 0, 0.1);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --font-body: "Inter", "Noto Sans TC", sans-serif;
+  --font-display: "Oswald", "Noto Sans TC", sans-serif;
+  --page-width: 1280px;
 }
