@@ -20,6 +20,17 @@ npm run dev
 
 開發伺服器預設在 <http://localhost:5173>。完整指令與開發規範請見 [`frontend/README.md`](frontend/README.md)。
 
+## 部署
+
+網站是純靜態檔案，不需要後端。建置後把 `frontend/dist/` 裡的內容上傳到任何靜態主機即可，不能直接雙擊 `index.html` 開啟。
+
+| 放置位置 | 建置指令 |
+| --- | --- |
+| 網域根目錄 | `npm run build` |
+| 子路徑 `/demo/fitness-1/` | `npm run build:demo` |
+
+目前的示範站在 <https://demo.adevic.dev/demo/fitness-1/>。詳細說明請見 [`frontend/README.md`](frontend/README.md#部署)。
+
 ## 設計方向
 
 首頁走運動感、有力量的深色風格，同時避免常見的 AI 健身站套版（螢光色、漸層、空洞形容詞）。

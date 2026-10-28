@@ -1,6 +1,6 @@
 ﻿# Frontend
 
-健身教練形象網站的前端，單頁 landing page，支援靜態網站生成（SSG）。
+健身教練形象網站的前端，單頁 landing page。程式採用 `vite-ssg` 的寫法，但目前的 `build` 指令是一般 Vite 建置，輸出的是由瀏覽器渲染的 SPA，不是預先產生的靜態 HTML。
 
 ## 技術棧
 
@@ -25,7 +25,7 @@
 ```bash
 npm install          # 安裝套件
 npm run dev          # 開發伺服器 http://localhost:5173
-npm run build        # 型別檢查 + SSG 建置，輸出到 dist/
+npm run build        # 型別檢查 + 建置，輸出到 dist/
 npm run build:demo   # 建置給子路徑 /demo/fitness-1/ 使用
 npm run preview      # 預覽建置結果
 npm run type-check   # TypeScript 檢查
@@ -96,7 +96,7 @@ src/
 - 目前在 `main.scss` 的 `.portrait__img` 用 CSS 把照片轉成黑白高對比，`.portrait__mask` 用來遮蓋原圖背景的招牌。換照片後請移除 `HomePage.vue` 中的 `portrait__mask` 與對應樣式
 - 照片請改為適合網頁的大小與格式（建議 WebP 或壓縮過的 JPG）
 
-## SSG 注意事項
+## 寫程式時的注意事項（為了日後改用 SSG）
 
 - 不要在 `setup()` 最上層使用 `window`、`document`、`localStorage`，請放進 `onMounted`
 - GSAP 動畫都放在 `onMounted`，並在 `onUnmounted` 清理
