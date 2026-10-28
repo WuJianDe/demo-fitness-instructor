@@ -1,21 +1,18 @@
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { defineStore } from "pinia";
 
 export const useAppStore = defineStore("app", () => {
-  const coachName = ref("JADE");
-  const siteName = ref("JADE ELITE");
-  const city = ref("TAIPEI");
+  const coachName = ref("Jade");
+  const siteName = ref("Jade 的訓練室");
+  const city = ref("台北");
   const siteDescription = ref(
-    "頂尖肌力與體能私人特訓，專為挑戰極限、追求絕對力量與美學的都會菁英打造。",
+    "台北一對一重量訓練，從把動作練對開始，依你的生活節奏安排課表。",
   );
-
-  const siteTagline = computed(() => `超越界線，重塑絕對巔峰與強大氣場。`);
 
   return {
     city,
     coachName,
     siteDescription,
     siteName,
-    siteTagline,
   };
 });

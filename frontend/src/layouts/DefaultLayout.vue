@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import SiteFooter from "../components/SiteFooter.vue";
 import SiteHeader from "../components/SiteHeader.vue";
-// We removed SiteFooter to keep the brutalist design extremely clean,
-// ending powerfully on the CTA section.
 </script>
 
 <template>
   <div>
+    <a class="skip-link" href="#main">跳到主要內容</a>
     <SiteHeader />
-    <main>
+    <main id="main">
       <slot />
     </main>
+    <SiteFooter />
   </div>
 </template>

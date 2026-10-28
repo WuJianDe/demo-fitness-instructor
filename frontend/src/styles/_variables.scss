@@ -1,19 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap");
 
 :root {
-  --color-ink: #ffffff;
-  --color-ink-soft: #cbd5e1; /* Lighter slate for better contrast */
-  --color-paper: #020617;
-  --color-paper-strong: rgba(15, 23, 42, 0.85);
-  --color-line: rgba(255, 255, 255, 0.1);
-  --color-brand: #ccff00; /* Neon yellow/green */
-  --color-brand-deep: #aee600; /* slightly darker neon */
-  --color-accent: #0ea5e9; /* Electric blue */
-  --color-accent-soft: rgba(14, 165, 233, 0.15);
-  --color-highlight: rgba(204, 255, 0, 0.1);
-  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.6);
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
-  --font-body: "Inter", "Noto Sans TC", sans-serif;
-  --font-display: "Oswald", "Noto Sans TC", sans-serif;
-  --page-width: 1280px;
+  --color-bg: #141210;
+  --color-surface: #1d1a17;
+  --color-ink: #f4efe8;
+  --color-muted: #a39b91;
+  --color-line: rgba(244, 239, 232, 0.14);
+  --color-accent: #ff5a1f;
+  --color-accent-ink: #141210;
+  --font-display: "Barlow Condensed", "Noto Sans TC", sans-serif;
+  --font-body: "Noto Sans TC", system-ui, sans-serif;
+  --page-width: 1200px;
+  --radius-card: 12px;
+  --radius-inner: 4px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
