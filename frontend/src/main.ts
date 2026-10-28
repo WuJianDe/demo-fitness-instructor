@@ -10,20 +10,24 @@ interface AppInitialState {
   pinia?: StateTree;
 }
 
-export const createApp = ViteSSG(App, { routes }, ({ app, initialState }) => {
-  const head = createHead();
-  const pinia = createPinia();
-  const state = initialState as AppInitialState;
+export const createApp = ViteSSG(
+  App,
+  { routes, base: import.meta.env.BASE_URL },
+  ({ app, initialState }) => {
+    const head = createHead();
+    const pinia = createPinia();
+    const state = initialState as AppInitialState;
 
-  app.use(head);
-  app.use(pinia);
+    app.use(head);
+    app.use(pinia);
 
-  if (import.meta.env.SSR) {
-    state.pinia = pinia.state.value;
-    return;
-  }
+    if (import.meta.env.SSR) {
+      state.pinia = pinia.state.value;
+      return;
+    }
 
-  if (state.pinia) {
-    pinia.state.value = state.pinia;
-  }
-});
+    if (state.pinia) {
+      pinia.state.value = state.pinia;
+    }
+  },
+);

@@ -26,6 +26,7 @@
 npm install          # 安裝套件
 npm run dev          # 開發伺服器 http://localhost:5173
 npm run build        # 型別檢查 + SSG 建置，輸出到 dist/
+npm run build:demo   # 建置給子路徑 /demo/fitness-1/ 使用
 npm run preview      # 預覽建置結果
 npm run type-check   # TypeScript 檢查
 npm run lint         # ESLint 檢查
@@ -35,6 +36,13 @@ npm run format:check # Prettier 檢查
 ```
 
 提交前請確認 `npm run type-check`、`npm run lint`、`npm run build` 都通過。
+
+## 部署
+
+- 網站放在網域根目錄：用 `npm run build`，上傳 `dist/` 的內容
+- 網站放在子路徑（例如 `https://demo.adevic.dev/demo/fitness-1/`）：用 `npm run build:demo`，上傳 `dist/` 的內容到該路徑
+- 換成其他子路徑時，把 `package.json` 中 `build:demo` 的 `--base=` 改成新路徑（前後都要有 `/`）
+- 不能直接雙擊 `dist/index.html` 開啟，必須透過網頁伺服器
 
 ## 環境變數
 

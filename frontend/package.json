@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "build:demo": "vue-tsc -b && vite build --base=/demo/fitness-1/",
     "preview": "vite preview",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint src eslint.config.js vite.config.ts",
