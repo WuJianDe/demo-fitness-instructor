@@ -1,77 +1,95 @@
 ﻿# Frontend
 
-Public-facing website for the fitness instructor project.
+健身教練形象網站的前端，單頁 landing page，支援靜態網站生成（SSG）。
 
-## Current Direction
+## 技術棧
 
-This frontend is currently styled as a premium, high-intensity brand site for a Taipei-based female fitness coach.
-The visual direction emphasizes:
-
-- Editorial typography and dark luxury presentation
-- High-contrast hero imagery and cinematic sections
-- Bold CTA-driven landing page structure
-- GSAP-powered scroll reveal motion
-
-## Implemented Sections
-
-- Hero section with large-format coach image
-- Training philosophy section
-- Signature program list
-- Training blueprint / process section
-- Consultation CTA section
-- Header and footer navigation shell
-- 404 page and SSG-ready routing scaffold
-
-## Stack
-
-- Vue 3 with `<script setup lang="ts">`
+- Vue 3（`<script setup lang="ts">`）
 - Vite + `vite-ssg`
-- Vue Router
-- Pinia
-- `@vueuse/head`
-- GSAP + ScrollTrigger
-- Axios
+- TypeScript（strict）
+- Vue Router、Pinia
+- `@vueuse/head`（SEO 與 `<head>`）
+- GSAP + ScrollTrigger（捲動顯示動畫）
+- Axios（已封裝於 `src/services/http.ts`，目前尚未串接 API）
 - SCSS
 
-## Commands
+## 環境需求
 
-Run all commands from `frontend/`.
+- Node.js 20.x LTS
+- npm
+
+## 指令
+
+所有指令都在 `frontend/` 目錄下執行。
 
 ```bash
-npm install
-npm run dev
-npm run build
-npm run preview
-npm run type-check
-npm run lint
-npm run lint:fix
-npm run format
-npm run format:check
+npm install          # 安裝套件
+npm run dev          # 開發伺服器 http://localhost:5173
+npm run build        # 型別檢查 + SSG 建置，輸出到 dist/
+npm run preview      # 預覽建置結果
+npm run type-check   # TypeScript 檢查
+npm run lint         # ESLint 檢查
+npm run lint:fix     # ESLint 自動修正
+npm run format       # Prettier 格式化
+npm run format:check # Prettier 檢查
 ```
 
-## Structure
+提交前請確認 `npm run type-check`、`npm run lint`、`npm run build` 都通過。
+
+## 環境變數
+
+複製 `.env.example` 為 `.env.local` 後修改。`VITE_` 開頭的變數會暴露在瀏覽器端，不要放機密資料。
+
+| 變數 | 說明 |
+| --- | --- |
+| `VITE_API_BASE_URL` | API 位址（目前網站未使用） |
+
+## 目錄結構
 
 ```text
 src/
-├── assets/
-├── components/
-├── composables/
-├── features/
-├── layouts/
-├── pages/
-├── router/
-├── services/
-├── stores/
-├── styles/
-└── types/
+├── assets/       # 圖片等靜態資源（hero.png 為首屏照片）
+├── components/   # 共用元件：SiteHeader、SiteFooter
+├── composables/  # 共用 composables
+├── features/     # 依功能分組的模組
+├── layouts/      # DefaultLayout（含跳到主內容連結、頁首、頁尾）
+├── pages/        # HomePage、NotFoundPage
+├── router/       # 路由設定
+├── services/     # axios 實例與 API 函式
+├── stores/       # Pinia stores（網站名稱、教練名稱等）
+├── styles/       # 全域 SCSS 與設計變數
+└── types/        # 共用型別
 ```
 
-## Verification
+## 首頁區塊
 
-The current frontend should be checked with:
+1. 首屏：標題、一個主要行動、教練照片
+2. 數據條：一對一、60 分鐘、免費諮詢
+3. 教學立場
+4. 三種課程
+5. 第一次怎麼開始（三個步驟）
+6. 關於教練
+7. 常見問題（原生 `<details>`）
+8. 預約諮詢
 
-```bash
-npm run type-check
-npm run lint
-npm run build
-```
+## 設計與修改
+
+- **顏色、字體、圓角**：全部定義在 `src/styles/_variables.scss` 的 CSS 變數，改這裡就能全站換色
+- **版面樣式**：`src/styles/main.scss`
+- **文案與區塊內容**：`src/pages/HomePage.vue`，課程、步驟、常見問題都是檔案頂部的陣列，直接改內容即可
+- **網站名稱與導覽**：`src/components/SiteHeader.vue`、`SiteFooter.vue`、`src/stores/app.ts`
+- **SEO 資訊**：`HomePage.vue` 的 `useHead`；每個新頁面都要呼叫 `useHead`
+- **動畫**：區塊使用 `.reveal` class 觸發 GSAP 顯示動畫，並尊重 `prefers-reduced-motion`
+
+### 照片
+
+`hero.png` 是暫用圖片。換成真實照片時請注意：
+
+- 目前在 `main.scss` 的 `.portrait__img` 用 CSS 把照片轉成黑白高對比，`.portrait__mask` 用來遮蓋原圖背景的招牌。換照片後請移除 `HomePage.vue` 中的 `portrait__mask` 與對應樣式
+- 照片請改為適合網頁的大小與格式（建議 WebP 或壓縮過的 JPG）
+
+## SSG 注意事項
+
+- 不要在 `setup()` 最上層使用 `window`、`document`、`localStorage`，請放進 `onMounted`
+- GSAP 動畫都放在 `onMounted`，並在 `onUnmounted` 清理
+- 新頁面請在 `src/router/` 加入路由
